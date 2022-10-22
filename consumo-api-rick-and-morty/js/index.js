@@ -1,49 +1,42 @@
-function loadUsers(users, table) {
-    const tableHead = table.querySelector("thead");
-    const tableBody = table.querySelector("tbody");
-    let headers = ["Id", "Title", "Completed"];
+const handleGetCharacters = (done) => {
 
-    // Clear table
-    tableHead.innerHTML = "<tr></tr>";
-    tableBody.innerHTML = "";
+    const response = fetch("https://rickandmortyapi.com/api/character");
+    response.then(response => response.json())
+        .then(data => done(data))
 
-    // Fill headers
-    headers.forEach(header => {
-        const headerElement = document.createElement("th");
-        headerElement.textContent = header;
-        tableHead.querySelector("tr").appendChild(headerElement);
-    });
+}
 
-    // Fill rows
-    users.forEach(user => {
-        const rowElement = document.createElement("tr");
+handleGetCharacters(data => {
 
-        for (const property in user) {
-            const cellElement = document.createElement("td");
+    data.results.forEach(character => {
 
-            if (property === "userId") {
-                continue;
-            }
+        const estado = "";
 
-            if (property === "completed") {
-                if (user[property] === true) {
-                    cellElement.className = "true";
-                } else {
-                    cellElement.className = "false";
-                }
-            }
-
-            cellElement.textContent = user[property];
-            rowElement.appendChild(cellElement);
+        switch (character.status) {
+            case "Alive":
+                
         }
 
-        tableBody.appendChild(rowElement);
+        const article = document.createRange().createContextualFragment(`
+            <article>
+                <div class="image-container">
+                    <img src="${character.image}" alt="Rick and Morty character">
+                </div>
+
+                <span class="${character.status.toLowerCase()}"></span>
+                <span>Nombre: ${character.name}</span>
+                <span>Especie: ${character.species}</span>
+                <span>Género: ${character.gender}</span>
+                <span>Origen: ${character.origin.name}</span>
+                <span>Localización: ${character.location.name}</span>
+
+            </article>
+        `)
+
+        const main = document.querySelector("main");
+
+        main.append(article);
+
     })
 
-}
-
-function getDataFromApi() {
-    fetch("https://jsonplaceholder.typicode.com/todos/")
-        .then(response => response.json())
-        .then(users => loadUsers(users, document.querySelector("table")));
-}
+})
