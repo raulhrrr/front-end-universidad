@@ -5,33 +5,35 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="styles/styles.css" rel="stylesheet">
-    <title>Document</title>
+    <title>Calculator</title>
   </head>
 <body>
-  <div class="calculator-grid">
-    <div class="output">
-      <div previous-operand class="previous-operand"></div>
-      <div current-operand class="current-operand"></div>
-    </div>
-    <button button-delete-all class="span-two">AC</button>
-    <button button-delete>DEL</button>
-    <button operator>÷</button>
-    <button number>1</button>
-    <button number>2</button>
-    <button number>3</button>
-    <button operator>*</button>
-    <button number>4</button>
-    <button number>5</button>
-    <button number>6</button>
-    <button operator>+</button>
-    <button number>7</button>
-    <button number>8</button>
-    <button number>9</button>
-    <button operator>-</button>
-    <button number>.</button>
-    <button number>0</button>
-    <button button-equals class="span-two">=</button>
+  <div id="app">
+    <form name="calculator">
+
+      <input id="answer" type="textfield" name="answer" value="" autocomplete="off" readonly>
+
+      <input class="number" type="button" value="7" onclick="document.calculator.answer.value+='7'">
+      <input class="number" type="button" value="8" onclick="document.calculator.answer.value+='8'">
+      <input class="number" type="button" value="9" onclick="document.calculator.answer.value+='9'">
+      <input class="operator" type="button" value="+" onclick="handleAddOperator('+')">
+      <br>
+      <input class="number" type="button" value="4" onclick="document.calculator.answer.value+='4'">
+      <input class="number" type="button" value="5" onclick="document.calculator.answer.value+='5'">
+      <input class="number" type="button" value="6" onclick="document.calculator.answer.value+='6'">
+      <input class="operator" type="button" value="-" onclick="handleAddOperator('-')">
+      <br>
+      <input class="number" type="button" value="1" onclick="document.calculator.answer.value+='1'">
+      <input class="number" type="button" value="2" onclick="document.calculator.answer.value+='2'">
+      <input class="number" type="button" value="3" onclick="document.calculator.answer.value+='3'">
+      <input class="operator" type="button" value="*" onclick="handleAddOperator('*')">
+      <br>
+      <input class="number" type="button" value="0" onclick="document.calculator.answer.value+='0'">
+      <input type="reset" value="C">
+      <input type="button" value="=" onclick="document.calculator.answer.value=eval(document.calculator.answer.value)">
+      <input class="operator" type="button" value="/" onclick="handleAddOperator('/')">
+<script src="js/index.js"></script>
+    </form>
   </div>
-  <script src="js/script.js" defer></script>
 </body>
 </html>
