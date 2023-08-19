@@ -10,7 +10,7 @@
 
 <body>
     <main>
-        <form method="post">
+        <form action="./php/registros.php" method="post">
             <div>
                 <label for="name">Nombre:</label>
                 <input type="text" id="name" name="name" />
@@ -56,7 +56,7 @@
                 <textarea id="msg" name="message"></textarea>
             </div>
             <div>
-                <input type="submit" value="Enviar">
+                <input type="submit" value="Registrarse">
             </div>
         </form>
     </main>

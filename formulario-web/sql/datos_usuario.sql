@@ -68,14 +68,14 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 
-INSERT INTO datos_usuario (name, lastname, user, password, email, gender, country, age, interests, message, id) VALUES
-('John', 'Doe', 'john123', 'pass123', 'john@example.com', 'Male', 'United States', 30, 'Sports, Music', 'Hello, this is John!', 1),
-('Jane', 'Smith', 'jane456', 'pwd456', 'jane@example.com', 'Female', 'Canada', 25, 'Reading, Travel', 'Hi, this is Jane!', 2),
-('Michael', 'Johnson', 'michael789', '12345', 'michael@example.com', 'Male', 'United Kingdom', 28, 'Movies, Cooking', 'Hey, this is Michael!', 3),
-('Emily', 'Williams', 'emily22', 'pswd22', 'emily@example.com', 'Female', 'Australia', 22, 'Photography, Hiking', 'Hi there, this is Emily!', 4),
-('William', 'Brown', 'will84', 'passw0rd', 'will@example.com', 'Male', 'New Zealand', 32, 'Gaming, Technology', 'Hello from William!', 5),
-('Sophia', 'Jones', 'sophia11', 'pwd11', 'sophia@example.com', 'Female', 'France', 27, 'Art, Fashion', 'Greetings, this is Sophia!', 6),
-('Daniel', 'Garcia', 'daniel99', '45678', 'daniel@example.com', 'Male', 'Spain', 29, 'Music, Dancing', 'Hello, this is Daniel!', 7),
-('Olivia', 'Martinez', 'olivia75', 'pwd75', 'olivia@example.com', 'Female', 'Mexico', 23, 'Cooking, Sports', 'Hi, its Olivia!', 8),
-('James', 'Rodriguez', 'james66', 'pass66', 'james@example.com', 'Male', 'Colombia', 26, 'Soccer, Travel', 'Hello from James!', 9),
-('Isabella', 'Lopez', 'isabella88', '123pass', 'isabella@example.com', 'Female', 'Brazil', 31, 'Movies, Music', 'Hi there, this is Isabella!', 10);
+INSERT INTO datos_usuario (name, lastname, user, password, email, gender, country, age, interests, message) VALUES
+('John', 'Doe', 'john123', 'pass123', 'john@example.com', 'Male', 'United States', 30, 'Sports, Music', 'Hello, this is John!'),
+('Jane', 'Smith', 'jane456', 'pwd456', 'jane@example.com', 'Female', 'Canada', 25, 'Reading, Travel', 'Hi, this is Jane!'),
+('Michael', 'Johnson', 'michael789', '12345', 'michael@example.com', 'Male', 'United Kingdom', 28, 'Movies, Cooking', 'Hey, this is Michael!'),
+('Emily', 'Williams', 'emily22', 'pswd22', 'emily@example.com', 'Female', 'Australia', 22, 'Photography, Hiking', 'Hi there, this is Emily!'),
+('William', 'Brown', 'will84', 'passw0rd', 'will@example.com', 'Male', 'New Zealand', 32, 'Gaming, Technology', 'Hello from William!'),
+('Sophia', 'Jones', 'sophia11', 'pwd11', 'sophia@example.com', 'Female', 'France', 27, 'Art, Fashion', 'Greetings, this is Sophia!'),
+('Daniel', 'Garcia', 'daniel99', '45678', 'daniel@example.com', 'Male', 'Spain', 29, 'Music, Dancing', 'Hello, this is Daniel!'),
+('Olivia', 'Martinez', 'olivia75', 'pwd75', 'olivia@example.com', 'Female', 'Mexico', 23, 'Cooking, Sports', 'Hi, its Olivia!'),
+('James', 'Rodriguez', 'james66', 'pass66', 'james@example.com', 'Male', 'Colombia', 26, 'Soccer, Travel', 'Hello from James!'),
+('Isabella', 'Lopez', 'isabella88', '123pass', 'isabella@example.com', 'Female', 'Brazil', 31, 'Movies, Music', 'Hi there, this is Isabella!');
