@@ -1,3 +1,7 @@
+CREATE DATABASE IF NOT EXISTS activities;
+
+USE activities;
+
 -- phpMyAdmin SQL Dump
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
@@ -31,7 +35,7 @@ CREATE TABLE `datos_usuario` (
   `name` varchar(50) NOT NULL,
   `lastname` varchar(50) NOT NULL,
   `user` varchar(20) NOT NULL,
-  `password` varchar(20) NOT NULL,
+  `password` varchar(128) NOT NULL,
   `email` varchar(100) NOT NULL,
   `gender` varchar(20) NOT NULL,
   `country` varchar(100) NOT NULL,

@@ -1,15 +1,13 @@
 <?php
 
-    $host = "localhost";
-    $username = "root";
-    $password = "password";
-    $database = "activities";
-    $port  = "3306";
-    
-    $conexion = mysqli_connect($host, $username, $password, $database, $port);
+$host = "localhost";
+$username = "root";
+$password = "";
+$database = "activities";
+$port  = "3306";
 
-    if (!$conexion) {
-        echo "<script>alert('Error en la conexión')</script>";
-    } else {
-        echo "<script>alert('Conectado exitosamente')</script>";
-    }
+$conexion = mysqli_connect($host, $username, $password, $database, $port);
+
+if (!$conexion) {
+    echo "<script>alert('Error en la conexión')</script>";
+}
