@@ -1,12 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/styles.css">
-    <title>Registro Usuario</title>
-</head>
+<?php include "./layouts/header.php"; ?>
 
 <body>
     <main>
@@ -60,7 +55,9 @@
                 <textarea id="msg" name="message"></textarea>
             </div>
             <div>
+                <a href="./index.php">¿Ya tiene cuenta? Inicie sesión</a>
                 <input type="submit" value="Registrarse">
+                <input type="reset" value="Limpiar">
             </div>
         </form>
     </main>

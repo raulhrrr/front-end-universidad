@@ -35,7 +35,7 @@ if ($result && mysqli_num_rows($result) > 0) {
             echo "<script>alert('Error al registrar usuario')</script>";
         } else {
             // header("Location:../index.php");
-            echo "<script>alert('Registro exitoso')</script>";
+            // echo "<script>alert('Registro exitoso')</script>";
         }
     }
 }
