@@ -6,25 +6,29 @@
 <body>
     <main>
         <form action="./php/registros.php" method="post">
-            <div>
-                <label for="name">Nombre:</label>
-                <input type="text" id="name" name="name" />
-            </div>
-            <div>
-                <label for="lastname">Apellido:</label>
-                <input type="text" id="lastname" name="lastname" />
+            <div class="joined_elements">
+                <div class="joined_element">
+                    <label for="name">Nombre:</label>
+                    <input type="text" id="name" name="name" />
+                </div>
+                <div class="joined_element">
+                    <label for="lastname">Apellido:</label>
+                    <input type="text" id="lastname" name="lastname" />
+                </div>
             </div>
             <div>
                 <label for="user">Usuario:</label>
                 <input type="text" id="user" name="user" />
             </div>
-            <div>
-                <label for="password">Contraseña:</label>
-                <input type="password" id="password" name="password" />
-            </div>
-            <div>
-                <label for="repeat_password">Confirme la Contraseña:</label>
-                <input type="password" id="repeat_password" name="repeat_password" />
+            <div class="joined_elements">
+                <div class="joined_element">
+                    <label for="password">Contraseña:</label>
+                    <input type="password" id="password" name="password" />
+                </div>
+                <div class="joined_element">
+                    <label for="repeat_password">Confirme la Contraseña:</label>
+                    <input type="password" id="repeat_password" name="repeat_password" />
+                </div>
             </div>
             <div>
                 <label for="email">Correo electrónico:</label>
@@ -56,8 +60,14 @@
             </div>
             <div>
                 <a href="./index.php">¿Ya tiene cuenta? Inicie sesión</a>
-                <input type="submit" value="Registrarse">
-                <input type="reset" value="Limpiar">
+                <div class="joined_elements">
+                    <div class="joined_element">
+                        <input type="submit" value="Registrarse">
+                    </div>
+                    <div class="joined_element">
+                        <input type="reset" value="Limpiar">
+                    </div>
+                </div>
             </div>
         </form>
     </main>

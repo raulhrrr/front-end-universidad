@@ -3,6 +3,16 @@
     font-family: 'Krub', sans-serif;
 }
 
+body {
+    height: 100vh;
+}
+
+main {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
 a {
     text-decoration: none;
 }
@@ -64,3 +74,13 @@ textarea {
     resize: none;
     display: block;
 }
+
+.joined_elements {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5px;
+}
+
+/* .joined_element {
+    padding: 0 5px;
+} */

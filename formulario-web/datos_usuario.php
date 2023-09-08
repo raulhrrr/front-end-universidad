@@ -6,50 +6,55 @@
 <body>
     <h1>Bienvenido!</h1>
 
-    <table>
-        <tr>
-            <th>ID</th>
-            <th>Nombre</th>
-            <th>Apellido</th>
-            <th>Usuario</th>
-            <th>Correo</th>
-            <th>Género</th>
-            <th>País</th>
-            <th>Edad</th>
-            <th>Intereses</th>
-            <th>Mensaje</th>
-        </tr>
-        <?php
-        // Establecer la conexión a la base de datos
-        $conexion = new mysqli("localhost", "usuario", "contraseña", "nombre_base_de_datos");
+    <div class="table-responsive">
+        <table class="table table-hover table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Apellido</th>
+                    <th scope="col">Usuario</th>
+                    <th scope="col">Correo</th>
+                    <th scope="col">Género</th>
+                    <th scope="col">País</th>
+                    <th scope="col">Edad</th>
+                    <th scope="col">Intereses</th>
+                    <th scope="col">Mensaje</th>
+                </tr>
+            </thead>
+            <tbody id="userTable" class="table-group-divider">
+                <?php
+                include "./php/conexion.php";
 
-        // Verificar si la conexión tuvo éxito
-        if ($conexion->connect_error) {
-            die("Error en la conexión: " . $conexion->connect_error);
-        }
+                $query = "SELECT * FROM datos_usuario";
+                $result = mysqli_query($conexion, $query);
 
-        // Realizar una consulta a la base de datos
-        $consulta = "SELECT id, nombre, apellido FROM tabla";
-        $resultado = $conexion->query($consulta);
+                if ($result && mysqli_num_rows($result) > 0) {
+                    while ($row =  mysqli_fetch_assoc($result)) {
+                        echo "<tr scope='row'>";
 
-        // Comprobar si hay filas en el resultado
-        if ($resultado->num_rows > 0) {
-            // Recorrer los resultados y mostrarlos en la tabla
-            while ($fila = $resultado->fetch_assoc()) {
-                echo "<tr>";
-                echo "<td>" . $fila["id"] . "</td>";
-                echo "<td>" . $fila["nombre"] . "</td>";
-                echo "<td>" . $fila["apellido"] . "</td>";
-                echo "</tr>";
-            }
-        } else {
-            echo "<tr><td colspan='3'>No se encontraron resultados</td></tr>";
-        }
+                        echo "<td>" . $row["id"] . "</td>";
+                        echo "<td>" . $row["name"] . "</td>";
+                        echo "<td>" . $row["lastname"] . "</td>";
+                        echo "<td>" . $row["user"] . "</td>";
+                        echo "<td>" . $row["email"] . "</td>";
+                        echo "<td>" . $row["gender"] . "</td>";
+                        echo "<td>" . $row["country"] . "</td>";
+                        echo "<td>" . $row["age"] . "</td>";
+                        echo "<td>" . $row["interests"] . "</td>";
+                        echo "<td>" . $row["message"] . "</td>";
 
-        // Cerrar la conexión a la base de datos
-        $conexion->close();
-        ?>
-    </table>
+                        echo "</tr>";
+                    }
+                } else {
+                    echo "<tr><td colspan='3'>No se encontraron resultados</td></tr>";
+                }
+
+                mysqli_close($conexion);
+                ?>
+            </tbody>
+        </table>
+    </div>
 </body>
 
 </html>
