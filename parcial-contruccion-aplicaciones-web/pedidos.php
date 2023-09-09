@@ -1,0 +1,18 @@
+<?php include "./layouts/header.php" ?>
+<main class="container mt-5">
+
+    
+    <p>
+        <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample">
+            Toggle width collapse
+        </button>
+    </p>
+    <div style="min-height: 120px;">
+        <div class="collapse collapse-horizontal" id="collapseWidthExample">
+            <div class="card card-body" style="width: 300px;">
+                This is some placeholder content for a horizontal collapse. It's hidden by default and shown when triggered.
+            </div>
+        </div>
+    </div>
+</main>
+<?php include "./layouts/footer.php" ?>
