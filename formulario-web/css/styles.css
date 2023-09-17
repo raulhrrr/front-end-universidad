@@ -80,7 +80,3 @@ textarea {
     grid-template-columns: repeat(2, 1fr);
     gap: 5px;
 }
-
-/* .joined_element {
-    padding: 0 5px;
-} */

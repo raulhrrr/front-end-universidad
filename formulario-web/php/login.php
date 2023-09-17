@@ -9,7 +9,15 @@ $query = "SELECT * FROM datos_usuario WHERE user = '$user' AND password = '$pass
 $result = mysqli_query($conexion, $query);
 
 if ($result && mysqli_num_rows($result) > 0) {
-    header("Location:../datos_usuario.php");
+    $user_data = mysqli_fetch_assoc($result);
+
+    session_start();
+
+    $_SESSION["id"] = $user_data["id"];
+    $_SESSION["name"] = $user_data["name"];
+    $_SESSION["lastname"] = $user_data["lastname"];
+
+    header("Location:../user_table.php");
 } else {
     // header("Location:../index.php");
     echo "<script>alert('Usuario o contraseña incorrectos')</script>";
