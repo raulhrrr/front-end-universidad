@@ -1,10 +1,19 @@
+<?php
+
+if (!isset($_SESSION)) {
+    session_start();
+}
+$user_autenticated = isset($_SESSION["user_id"]);
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="light">
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <script src="css/color-modes.js.descarga"></script>
-
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
@@ -14,7 +23,7 @@
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/album/">
 
-
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <link rel="stylesheet" href="./css/css@3">
 
@@ -29,8 +38,16 @@
     <link rel="icon" href="https://getbootstrap.com/docs/5.3/assets/img/favicons/favicon.ico">
     <meta name="theme-color" content="#712cf9">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Krub:ital,wght@0,400;0,700;1,700&display=swap" rel="stylesheet">
 
     <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Krub', sans-serif;
+        }
+
         .bd-placeholder-img {
             font-size: 1.125rem;
             text-anchor: middle;
@@ -185,7 +202,20 @@
                     <div class="col-sm-4 offset-md-1 py-4">
                         <h4>Opciones</h4>
                         <ul class="list-unstyled">
-                            <li><a href="add_car.php" class="text-white">Añadir vehículo</a></li>
+
+                            <?php if ($user_autenticated) { ?>
+
+                                <li><a href="my_purchases.php" class="text-white text-decoration-none">Mis compras</a></li>
+                                <li><a href="add_car.php" class="text-white text-decoration-none">Añadir vehículo</a></li>
+                                <li><a href="php/end_session.php" class="text-white text-decoration-none">Cerrar sesión</a></li>
+
+                            <?php } else { ?>
+
+                                <li><a href="register_user.php" class="text-white text-decoration-none">Registro de usuario</a></li>
+                                <li><a href="login_user.php" class="text-white text-decoration-none">Inicio de sesión</a></li>
+
+                            <?php } ?>
+
                         </ul>
                     </div>
                 </div>
