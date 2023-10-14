@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 			if (!$result) {
 				showAlert('Error al registrar usuario');
 			} else {
-				redirect("./login_user.php");
+				redirect("./login_user.php?success=true");
 			}
 		}
 	}

@@ -32,6 +32,17 @@ include "layouts/header.php";
 
 	<div class="py-5 bg-body-tertiary">
 		<div class="container">
+
+			<?php
+			if (isset($_GET["success"])) {
+			?>
+				<div class="alert alert-success" role="alert">
+					El registro del usuario se ha realizado correctamente.
+				</div>
+			<?php
+			}
+			?>
+
 			<h2>Inicio de sesión</h2>
 			<form action="login_user.php" method="post">
 				<div class="form-group mb-3">

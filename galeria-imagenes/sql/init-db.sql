@@ -51,6 +51,7 @@ CREATE TABLE orders (
   cars_quantity INT NOT NULL,
   total DECIMAL(12, 2) NOT NULL,
   applied_discount TINYINT NOT NULL,
+  earned_ballots TINYINT NOT NULL,
   datetime TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   FOREIGN KEY (user_id) REFERENCES users(id),
   FOREIGN KEY (car_id) REFERENCES cars(id)
@@ -91,16 +92,17 @@ VALUES
 ('Carro 15', 'Descripción del vehiculo 15', 32000, '15.jpg', 0, 5);
 
 SELECT
+	o.id,
 	u.name,
 	u.lastname,
 	u.email,
+	c.name as car_name,
+	o.earned_ballots,
+	c.price,
 	o.shipping_address,
 	o.cars_quantity,
-	o.total,
 	o.applied_discount,
-	c.name as car_name,
-	c.description,
-	c.price
+	o.total
 FROM
 	users u
 INNER JOIN orders o ON
@@ -108,4 +110,4 @@ INNER JOIN orders o ON
 INNER JOIN cars c ON
 	c.id = o.car_id
 WHERE
-	u.id = 1;
+	u.id = 2

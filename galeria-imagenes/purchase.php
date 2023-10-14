@@ -36,9 +36,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     $cars_quantity = $_POST["cars_quantity"];
     $total = floatval(str_replace(",", "", $_POST["total"]));
     $applied_discount = intval(str_replace("%", "", $_POST["applied_discount"]));
+    $earned_ballots = intval(floor($total / 50000));
 
-    $statement = "INSERT INTO orders (user_id, car_id, contact_number, shipping_address, cars_quantity, total, applied_discount, datetime)
-                    VALUES($user_id, $car_id, $contact_number, '$shipping_address', $cars_quantity, $total, $applied_discount, CURRENT_TIMESTAMP)";
+    $statement = "INSERT INTO orders (user_id, car_id, contact_number, shipping_address, cars_quantity, total, applied_discount, earned_ballots, datetime)
+                    VALUES($user_id, $car_id, $contact_number, '$shipping_address', $cars_quantity, $total, $applied_discount, $earned_ballots, CURRENT_TIMESTAMP)";
 
     $result = mysqli_query($connection, $statement);
 
@@ -55,7 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         $statement = "UPDATE cars SET amount = $newAmount WHERE id = $car_id";
         $result = mysqli_query($connection, $statement);
 
-        redirect("./my_purchases.php");
+        redirect("./my_purchases.php?earned_ballots=$earned_ballots");
     }
 }
 
@@ -66,7 +67,10 @@ include "layouts/header.php";
 
     <div class="py-5 bg-body-tertiary">
         <div class="container">
-            <h2>Datos de facturación</h2>
+            <div class="d-flex justify-content-between align-items-center">
+                <h2>Datos de facturación</h2>
+                <strong>** Recibirás una boleta por cada 50,000.00</strong>
+            </div>
             <form action="purchase.php" method="post">
                 <input type="hidden" type="number" name="user_id" value="<?php echo $user_id ?>">
                 <input type="hidden" type="number" name="car_id" value="<?php echo $car_id ?>">
@@ -92,7 +96,7 @@ include "layouts/header.php";
                 </div>
                 <div class="form-group mb-3">
                     <label for="product">Producto elegido</label>
-                    <input type="text" class="form-control" id="product" value="<?php echo "Nombre: " . $car_data["name"] . " | Precio base: " . number_format($car_data["price"], 2); ?>" readonly required>
+                    <input type="text" class="form-control" id="product" value="<?php echo "Nombre: " . $car_data["name"] . " | Precio individual: " . number_format($car_data["price"], 2); ?>" readonly required>
                 </div>
                 <div class="form-group mb-3">
                     <label for="cars_quantity">Cantidad de vehículos</label>

@@ -1,6 +1,7 @@
 <?php
 
 include_once "php/connect.php";
+include_once "php/functions.php";
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
@@ -22,6 +23,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 	$statement = "INSERT INTO cars (name, description, price, discount, amount, file_name) VALUES ('$name', '$description', $price, $discount, $amount, '$image_name')";
 	$result = mysqli_query($connection, $statement);
+
+	redirect("./index.php?success=true");
 }
 
 include "layouts/header.php";

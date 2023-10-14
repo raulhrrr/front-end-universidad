@@ -4,6 +4,17 @@
 
 	<div class="album py-5 bg-body-tertiary">
 		<div class="container">
+
+			<?php
+			if (isset($_GET["success"])) {
+			?>
+				<div class="alert alert-success" role="alert">
+					El registro del vehículo se ha realizado correctamente.
+				</div>
+			<?php
+			}
+			?>
+
 			<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
 
 				<?php
