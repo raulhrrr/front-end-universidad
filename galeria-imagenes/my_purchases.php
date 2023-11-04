@@ -53,10 +53,11 @@ include "layouts/header.php";
                 <tbody>
                     <?php
                     if ($result && mysqli_num_rows($result) > 0) {
+                        $counter = 0;
                         while ($row = mysqli_fetch_assoc($result)) {
                     ?>
                             <tr>
-                                <th scope="row"><?php echo $row["id"] ?></th>
+                                <th scope="row"><?php echo ++$counter ?></th>
                                 <td><?php echo $row["email"] ?></td>
                                 <td><?php echo $row["shipping_address"] ?></td>
                                 <td><?php echo $row["car_name"] ?></td>
