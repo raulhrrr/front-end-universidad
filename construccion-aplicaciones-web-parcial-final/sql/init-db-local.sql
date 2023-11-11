@@ -82,3 +82,47 @@ INSERT INTO roles (id, name)
 VALUES (1, 'Cliente'),
        (2, 'Proveedor'),
        (3, 'Administrador');
+
+INSERT INTO users
+(name, lastname, address, phone, age, email, gender_id, document_id, document_number, role_id, `user`, password)
+VALUES('Mauricio', 'Velandia', 'Cll 55 #34 - 12 Sur', '321654987', 34, 'mauricio.velandia@mail.com', 1, 1, 123456789, 2, 'admin', 'c7ad44cbad762a5da0a452f9e854fdc1e0e7a52a38015f23f3eab1d80b931dd472634dfac71cd34ebc35d16ab7fb8a90c81f975113d6c7538dc69dd8de9077ec');
+
+INSERT INTO 
+    products (supplier_id, name, price, quantity)
+VALUES 
+    (1, 'Mouse', 15000, 10),
+    (1, 'Teclado', 30000, 5),
+    (1, 'Monitor', 500000, 2),
+    (1, 'Parlantes', 100000, 3),
+    (1, 'Cámara', 200000, 1),
+    (1, 'Impresora', 250000, 1),
+    (1, 'Memoria USB', 50000, 10),
+    (1, 'Disco Duro', 200000, 5),
+    (1, 'Memoria RAM', 150000, 5),
+    (1, 'Procesador', 500000, 2),
+    (1, 'Tarjeta de Video', 500000, 2),
+    (1, 'Tarjeta de Sonido', 50000, 5),
+    (1, 'Tarjeta de Red', 50000, 5),
+    (1, 'Tarjeta Madre', 500000, 2),
+    (1, 'Fuente de Poder', 50000, 5),
+    (1, 'Gabinete', 50000, 5),
+    (1, 'Ventilador', 50000, 5),
+    (1, 'Cable HDMI', 50000, 5),
+    (1, 'Cable VGA', 50000, 5),
+    (1, 'Cable USB', 50000, 5),
+    (1, 'Cable de Red', 50000, 5),
+    (1, 'Cable de Poder', 50000, 5),
+    (1, 'Cable de Audio', 50000, 5),
+    (1, 'Cable de Video', 50000, 5),
+    (1, 'Cable de Teléfono', 50000, 5),
+    (1, 'Cable de Energía', 50000, 5),
+    (1, 'Cable de Datos', 50000, 5),
+    (1, 'Cable de Alimentación', 50000, 5),
+    (1, 'Cable de Carga', 50000, 5),
+    (1, 'Cable de Red', 50000, 5);
+
+SELECT * FROM users s;
+
+SELECT p.id, p.name, p.price, p.quantity FROM products p INNER JOIN users u ON u.id = p.supplier_id WHERE supplier_id = 4
+
+SELECT count(*) FROM users WHERE user = 'admin' OR email = 'admin@admin.com'

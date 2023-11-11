@@ -71,6 +71,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 initSession();
                 $role = $_SESSION["user_role"];
                 $redirectTo = $role == Role::CLIENT->value ? "./suppliers_list.php" : "./product_inventory.php";
+
+                $_SESSION["user_name"] = $name;
+                $_SESSION["user_lastname"] = $lastname;
             }
 
             executeStatement($dbConnection, $statement, $redirectTo, 'Error al ' . $action === "create" ? "registrar" : "actualizar" . ' el usuario', $action);
