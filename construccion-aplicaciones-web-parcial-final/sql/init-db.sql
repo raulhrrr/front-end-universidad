@@ -17,7 +17,13 @@ CREATE TABLE genders
     name VARCHAR(20) NOT NULL
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4;
 
-CREATE TABLE suppliers
+CREATE TABLE roles
+(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(20) NOT NULL
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4;
+
+CREATE TABLE users
 (
     id int AUTO_INCREMENT PRIMARY KEY,
     name varchar(50) NOT NULL,
@@ -28,10 +34,13 @@ CREATE TABLE suppliers
     email varchar(100) UNIQUE NOT NULL,
     gender_id int NOT NULL,
     document_id int NOT NULL,
+    document_number varchar(20) NOT NULL,
+    role_id int NOT NULL,
     `user` varchar(20) UNIQUE NOT NULL,
     password varchar(128) NOT NULL,
     FOREIGN KEY (document_id) REFERENCES documents (id),
-    FOREIGN KEY (gender_id) REFERENCES genders (id)
+    FOREIGN KEY (gender_id) REFERENCES genders (id),
+    FOREIGN KEY (role_id) REFERENCES roles (id)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4;
 
 CREATE TABLE products
@@ -41,22 +50,7 @@ CREATE TABLE products
     name varchar(50) NOT NULL,
     price decimal(18, 2) NOT NULL,
     quantity int NOT NULL,
-    FOREIGN KEY (supplier_id) REFERENCES suppliers (id)
-) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4;
-
-CREATE TABLE clients
-(
-    id int AUTO_INCREMENT PRIMARY KEY,
-    name varchar(50) NOT NULL,
-    lastname varchar(50) NULL,
-    address varchar(100) NULL,
-    phone varchar(15) NOT NULL,
-    gender_id int NOT NULL,
-    document_id int NOT NULL,
-    email varchar(100) NOT NULL,
-    nit_ced varchar(20) NOT NULL,
-    FOREIGN KEY (document_id) REFERENCES documents (id),
-    FOREIGN KEY (gender_id) REFERENCES genders (id)
+    FOREIGN KEY (supplier_id) REFERENCES users (id)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4;
 
 CREATE TABLE orders
@@ -70,7 +64,7 @@ CREATE TABLE orders
     total DECIMAL(12, 2) NOT NULL,
     applied_discount TINYINT NOT NULL DEFAULT (0),
     datetime TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (client_id) REFERENCES clients (id),
+    FOREIGN KEY (client_id) REFERENCES users (id),
     FOREIGN KEY (product_id) REFERENCES products (id)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4;
 
@@ -84,8 +78,15 @@ VALUES (1, 'Masculino'),
        (2, 'Femenino'),
        (3, 'Otro');
 
-INSERT INTO suppliers
-(name, lastname, address, phone, age, email, gender_id, document_id, `user`, password)
-VALUES('admin', 'admin', 'Cll 80', '321654987', 20, 'admin@admin.com', 1, 1, 'admin', 'c7ad44cbad762a5da0a452f9e854fdc1e0e7a52a38015f23f3eab1d80b931dd472634dfac71cd34ebc35d16ab7fb8a90c81f975113d6c7538dc69dd8de9077ec');
+INSERT INTO roles (id, name)
+VALUES (1, 'Cliente'),
+       (2, 'Proveedor'),
+       (3, 'Administrador');
 
-SELECT * FROM suppliers s; 
+INSERT INTO users
+(name, lastname, address, phone, age, email, gender_id, document_id, document_number, role_id, `user`, password)
+VALUES('admin', 'admin', 'Cll 80', '321654987', 20, 'admin@admin.com', 1, 1, 123456789, 2, 'admin', 'c7ad44cbad762a5da0a452f9e854fdc1e0e7a52a38015f23f3eab1d80b931dd472634dfac71cd34ebc35d16ab7fb8a90c81f975113d6c7538dc69dd8de9077ec');
+
+SELECT * FROM users s;
+
+SELECT count(*) FROM users WHERE user = 'admin' OR email = 'admin@admin.com'

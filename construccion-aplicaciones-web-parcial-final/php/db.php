@@ -16,11 +16,11 @@ if ($dbConnection->connect_errno) {
     exit();
 }
 
-function executeStatement($dbConnection, $statement, $redirectTo, $errorMessage, $action = "create")
+function executeStatement($dbConnection, $statement, $redirectTo, $errorMessage, $action = "create", $item = "")
 {
     $result = mysqli_query($dbConnection, $statement);
     if ($result) {
-        redirect($redirectTo . "?action=$action&success=true");
+        redirect($redirectTo . "?action=$action&success=true" . ($item ? "&item=$item" : ""));
     } else {
         showAlert($errorMessage);
     }
