@@ -71,7 +71,7 @@ include "layouts/header.php";
                     <label for="quantity">Cantidad</label>
                     <input type="number" oninput="this.value = Math.round(this.value);" min="0" class="form-control" id="quantity" name="quantity" placeholder="Ingrese la cantidad de productos disponibles" value="<?php echo $action === "update" ? $product_data["quantity"] : "1" ?>" required>
                 </div>
-                <button type="submit" class="btn btn-primary"><?php echo $action === "create" ? "Añadir" : "Actualizar" ?></button>
+                <button type="submit" class="btn btn-dark"><?php echo $action === "create" ? "Añadir" : "Actualizar" ?></button>
             </form>
         </div>
     </div>

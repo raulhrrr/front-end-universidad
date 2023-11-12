@@ -63,7 +63,7 @@ include "layouts/header.php";
                     <input type="password" class="form-control" id="password" name="password" required />
                 </div>
                 <div class="d-flex justify-content-between">
-                    <button type="submit" class="btn btn-primary">Iniciar sesión</button>
+                    <button type="submit" class="btn btn-dark">Iniciar sesión</button>
                 </div>
             </form>
         </div>

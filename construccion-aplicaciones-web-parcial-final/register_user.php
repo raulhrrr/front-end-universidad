@@ -164,7 +164,7 @@ include "layouts/header.php";
                         <input type="password" class="form-control" id="repeat_password" name="repeat_password" required>
                     </div>
                 <?php } ?>
-                <button type="submit" class="btn btn-primary"><?php echo $action === "create" ? "Registrar" : "Actualizar" ?></button>
+                <button type="submit" class="btn btn-dark"><?php echo $action === "create" ? "Registrar" : "Actualizar" ?></button>
             </form>
         </div>
     </div>

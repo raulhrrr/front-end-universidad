@@ -76,7 +76,7 @@ include "layouts/header.php";
                 <h2 class="my-4">Bienvenido, <?php echo $supplier_name . " " . $supplier_lastname ?></h2>
 
                 <div class="my-4">
-                    <a class="btn btn-sm btn-outline-success" href="./add_product.php?action=create">Añadir nuevo producto</a>
+                    <a class="btn btn-sm btn-outline-dark" href="./add_product.php?action=create">Añadir nuevo producto</a>
                 </div>
             <?php } ?>
 
